@@ -4,6 +4,7 @@ PATH
     irkit (0.0.1)
       dnssd
       httparty
+      json
 
 GEM
   remote: https://rubygems.org/
