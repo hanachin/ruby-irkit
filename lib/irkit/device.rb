@@ -13,14 +13,17 @@ module IRKit
       case res.code
       when 200
         return nil if res.body.length < 1
-        return JSON.parse res.body
+        return IRKit::Data.new JSON.parse res.body
       else
         raise IRKit::Error, res.body
       end
     end
 
-    def post_messages
-      
+    def post_messages(data)
+      opts = {
+        :body => data
+      }
+      HTTParty.post "http://#{@addr}/messages", opts
     end
 
   end
